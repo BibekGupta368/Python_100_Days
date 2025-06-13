@@ -1,0 +1,62 @@
+import random
+from hl_data import data_list
+from hl_art import logo1,logo2
+def higher_lower():
+    #printing the logo
+    print(logo1)
+    data2 = random.choice(data_list) 
+    flag = True
+    score = 0
+    while flag:
+        #Making the data at position B become the next data at position A                                             
+        data1 = data2                # data1 is now behave as a dictionary
+
+        #Choosing the second random data as 'B' from the given data_list 
+        data2 = random.choice(data_list)  # data2 is now behave as a dictionary
+
+        if data1 == data2:
+            data2 = random.choice(data_list)
+
+        print("Compare A: " + data1['name'] + ", " + data1['description'] + ", " + "from " + data1['country'])
+
+        print(logo2)
+
+        print("Against B: " + data2['name'] + ", " + data2['description'] + ", " + "from " + data2['country'])
+        
+        def comparision(d1,d2):
+            if d1['follower_count'] > d2['follower_count']:
+                return True
+            else: # d2['follower_count'] > d1['follower_count']:
+                return False
+            
+        choice = input("Who has more followers? Type 'A' or 'B': ")
+        print("\n" *20)
+        print(logo1)
+        if choice == "A":
+           result1 = comparision(data1,data2)
+           if result1 == True:
+                score += 1
+                print(f"You're absolutely right!!!, current score = {score}")    
+                flag = True
+           else: #False
+                print(f"Opps that's wrong!!!,final score = {score}")
+                flag = False
+
+        else: #choice == "B":
+           result2 = comparision(data2,data1)
+           if result2 == True:
+                score += 1
+                print(f"You're absolutely right!!!, current score = {score}")    
+                flag = True
+           else: #False
+                print(f"Opps that's wrong!!!,final score = {score}")
+                flag = False
+
+flag1 = True
+while flag1:
+    choice1 = input("Do you want to play the HIGHER LOWER GAME? Type 'yes' or 'no': ")
+    if choice1 == "yes":
+        higher_lower()
+        flag1 = True
+    else:
+        flag1 = False

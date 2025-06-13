@@ -1,0 +1,1 @@
+back_img = PhotoImage(file="Day 31/Capston Project/images/card_back.png")

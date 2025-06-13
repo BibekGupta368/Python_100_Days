@@ -1,0 +1,1 @@
+ potion_strength += 1
